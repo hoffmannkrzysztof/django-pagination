@@ -91,10 +91,7 @@ class AutoPaginateNode(template.Node):
         self.multiple_paginations = multiple_paginations
 
     def render(self, context):
-        if self.multiple_paginations or context.has_key('paginator'):
-            page_suffix = '_%s' % self.queryset_var
-        else:
-            page_suffix = ''
+        page_suffix = ''
         
         key = self.queryset_var.var
         value = self.queryset_var.resolve(context)
